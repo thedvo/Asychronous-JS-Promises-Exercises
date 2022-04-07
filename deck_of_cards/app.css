@@ -1,0 +1,39 @@
+img {
+	max-height: 300px;
+	margin: 5px;
+}
+
+body {
+	background-color: rgb(38, 136, 38);
+	text-align: center;
+}
+
+button {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	height: 50px;
+	width: 130px;
+	border-radius: 10px;
+	font-weight: bold;
+}
+
+button:hover {
+	cursor: pointer;
+	background-color: rgb(167, 164, 164);
+}
+
+button:active,
+button:focus {
+	outline: none;
+}
+
+#card-area {
+	margin-top: 80px;
+}
+
+#card-area > img {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
