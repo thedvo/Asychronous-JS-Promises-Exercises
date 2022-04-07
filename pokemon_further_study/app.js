@@ -8,29 +8,23 @@ axios.get(`${baseURL}/?limit=898`).then((response) => {
 	console.log(response.data.results[0].url);
 
 	for (let pokemon of response.data.results) {
-		// console.log(pokemon.name);
-		// console.log(pokemon.url);
+		console.log(pokemon.name);
+		console.log(pokemon.url);
 	}
 });
 
 // 2. Once you have names and URLs of all the pokemon, pick three at random and make requests to their URLs. Once those requests are complete, console.log the data for each pokemon.
 
-axios
-	.get(`${baseURL}/380/`)
+axios.get(`${baseURL}/380/`)
 	.then((p1) => {
-		// console.log(p1.data);
 		console.log(p1.data.name);
-
 		return axios.get(`${baseURL}/382/`);
 	})
 	.then((p2) => {
-		// console.log(p2.data);
 		console.log(p2.data.name);
-
 		return axios.get(`${baseURL}/383/`);
 	})
 	.then((p3) => {
-		// console.log(p3.data);
 		console.log(p3.data.name);
 	});
 
@@ -45,11 +39,7 @@ axios
 		return axios.get(`${baseURL}-species/382/`);
 	})
 	.then((p1) => {
-		console.log(
-			`${p1Name.toUpperCase()} --> ${
-				p1.data.flavor_text_entries[0].flavor_text
-			}`
-		);
+		console.log(`${p1Name.toUpperCase()} --> ${p1.data.flavor_text_entries[0].flavor_text}`);
 		return axios.get(`${baseURL}/383/`);
 	})
 	.then((p2) => {
@@ -57,11 +47,7 @@ axios
 		return axios.get(`${baseURL}-species/383/`);
 	})
 	.then((p2) => {
-		console.log(
-			`${p2Name.toUpperCase()} --> ${
-				p2.data.flavor_text_entries[0].flavor_text
-			}`
-		);
+		console.log(`${p2Name.toUpperCase()} --> ${p2.data.flavor_text_entries[0].flavor_text}`);
 		return axios.get(`${baseURL}/384/`);
 	})
 	.then((p3) => {
@@ -69,11 +55,7 @@ axios
 		return axios.get(`${baseURL}-species/384/`);
 	})
 	.then((p3) => {
-		console.log(
-			`${p3Name.toUpperCase()} --> ${
-				p3.data.flavor_text_entries[0].flavor_text
-			}`
-		);
+		console.log(`${p3Name.toUpperCase()} --> ${p3.data.flavor_text_entries[0].flavor_text}`);
 	});
 
 // 4. BONUS Instead of relying on console.log, let’s create a UI for these random pokemon. Build an HTML page that lets you click on a button to generate data from three randomly chosen pokemon. Include the name of the pokemon, an image of the pokemon, and the description of its species which you found in 3.

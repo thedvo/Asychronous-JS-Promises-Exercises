@@ -9,8 +9,6 @@ axios.get(`${baseURL}/new/draw/?count=1`).then((response) => {
 	cardSuit = response.data.cards[0].suit;
 
 	console.log(`${cardValue} of ${cardSuit}`);
-	// console.log(response.data.cards[0]);
-	// console.log(response.data);
 });
 
 /*  2. Make a request to the deck of cards API to request a single card from a newly shuffled deck. Once you have the card, make a request to the same API to get one more card from the same deck. 
@@ -24,7 +22,6 @@ axios
 		cardSuit = card_1.data.cards[0].suit;
 
 		console.log(`${cardValue} of ${cardSuit}`);
-		// console.log(card_1.data);
 		return axios.get(`${baseURL}/${card_1.data.deck_id}/draw/?count=1`);
 	})
 	.then((card_2) => {
@@ -32,7 +29,6 @@ axios
 		cardSuit = card_2.data.cards[0].suit;
 
 		console.log(`${cardValue} of ${cardSuit}`);
-		// console.log(card_2.data);
 	});
 
 // 3.  Build an HTML page that lets you draw cards from a deck. When the page loads, go to the Deck of Cards API to create a new deck, and show a button on the page that will let you draw a card. Every time you click the button, display a new card, until there are no cards left in the deck.
@@ -42,8 +38,6 @@ let $cardDiv = $('div');
 let deckId;
 
 axios.get(`${baseURL}/new/shuffle/`).then((response) => {
-	// console.log('New shuffled deck!');
-	// console.log(response.data.deck_id);
 	deckId = response.data.deck_id;
 });
 
@@ -59,10 +53,7 @@ $btn.on('click', function () {
 			$cardDiv.append(
 				$('<img>', {
 					src: cardImage,
-					css: {
-						transform: `translate(${randomX}px, ${randomY}px) rotate(${angle}deg)`,
-					},
-				})
+					css: {transform: `translate(${randomX}px, ${randomY}px) rotate(${angle}deg)`}})
 			);
 		})
 		.catch((err) =>
