@@ -2,16 +2,26 @@ let baseURL = 'https://pokeapi.co/api/v2/pokemon';
 
 // 1. Figure out how to make a single request to the Pokemon API to get names and URLs for every pokemon in the database.
 
-axios.get(`${baseURL}/?limit=898`).then((response) => {
-	console.log(response.data);
-	console.log(response.data.results[0].name);
-	console.log(response.data.results[0].url);
+// axios.get(`${baseURL}/?limit=898`).then((response) => {
+// 	console.log(response.data);
+// 	console.log(response.data.results[0].name);
+// 	console.log(response.data.results[0].url);
 
-	for (let pokemon of response.data.results) {
-		console.log(pokemon.name);
-		console.log(pokemon.url);
-	}
-});
+// 	for (let pokemon of response.data.results) {
+// 		console.log(pokemon.name);
+// 		console.log(pokemon.url);
+// 	}
+// });
+
+
+// Async Await
+async function get_pokemon(){
+	let res = await axios.get(`${baseURL}/?limit=898`);
+	console.log(res.data.results)
+}
+
+
+
 
 // 2. Once you have names and URLs of all the pokemon, pick three at random and make requests to their URLs. Once those requests are complete, console.log the data for each pokemon.
 
@@ -59,3 +69,4 @@ axios
 	});
 
 // 4. BONUS Instead of relying on console.log, let’s create a UI for these random pokemon. Build an HTML page that lets you click on a button to generate data from three randomly chosen pokemon. Include the name of the pokemon, an image of the pokemon, and the description of its species which you found in 3.
+
